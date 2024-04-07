@@ -1,0 +1,7 @@
+dreibein_becalendar_notification_send:
+  path: /dreibein/becalendar/notification/send
+  defaults:
+    _scope: frontend
+    _token_check: false
+    _controller: "DreibeinBeCalendarBundle:DreibeinNotification:send"
+  methods: [GET]

@@ -1,0 +1,59 @@
+<div id='wrap'>
+    <div id='calendar'></div>
+    <?php if($this->allowEdit): ?>
+        <div id='external-events'>
+            <h4>Mechaniker</h4>
+            <div class="eventswrapper">
+                <?php foreach($this->users as $user): ?>
+                    <div style="background-color:#<?= $user['color']; ?>" data-monteur="<?= $user['id']; ?>" class='fc-event'><?= $user['name']; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif;?>
+</div>
+<script>
+    $(document).ready(function() {
+
+        /* initialize the external events
+        -----------------------------------------------------------------*/
+
+        $('#external-events .fc-event').each(function() {
+
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
+
+
+        /* initialize the calendar
+        -----------------------------------------------------------------*/
+
+        $('#calendar').fullCalendar({
+            locale: 'de',
+            timezone: 'local',
+            lang: 'de',
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true,
+            droppable: true, // this allows things to be dropped onto the calendar
+            drop: function(date, allDay, event) {
+                //console.log(date._d.getTime());
+                window.location.replace("contao?do=dreibein_becalendar&act=create&rt=<?= $this->rt; ?>&event_monteur="+$(this).data("monteur")+"&event_start="+(date._d.getTime()/1000));
+            },
+            events: [<?= $this->dates; ?>]
+        });
+    });
+</script>

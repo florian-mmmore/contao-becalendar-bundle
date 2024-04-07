@@ -1,0 +1,39 @@
+{
+  "name": "dreibein/contao-becalendar-bundle",
+  "type": "contao-bundle",
+  "description": "Dreibein Backend-Calendar-Bundle",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "Thomas Voggenreiter",
+      "email": "t.voggenreiter@agentur-dreibein.de",
+      "homepage": "https://www.agentur-dreibein.de"
+    }
+  ],
+  "require": {
+    "contao/core-bundle": "^4.4"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dreibein\\BeCalendarBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "contao-manager-plugin": "Dreibein\\BeCalendarBundle\\ContaoManager\\Plugin"
+  }
+}

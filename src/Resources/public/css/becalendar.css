@@ -1,0 +1,53 @@
+#wrap * {box-sizing: border-box;}
+#wrap {
+    width: 100%;
+    padding:10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#external-events {
+    margin-top:10px;
+    width: 100%;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+}
+.eventswrapper {
+    display: flex;
+}
+
+#external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
+}
+
+#external-events .fc-event {
+    margin: 5px 0;
+    cursor: pointer;
+    width:25%;
+    padding:10px 15px;
+    font-size:11px;
+    margin-right:10px;
+    border:0;
+}
+
+#external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
+}
+
+#external-events p input {
+    margin: 0;
+    vertical-align: middle;
+}
+
+#calendar {
+    width: 100%;
+}
+#calendar .fc-event-container span, .fc-time-grid-event .fc-content, .fc-time-grid-event .fc-time, .fc-time-grid-event .fc-title {
+    color: #fff;
+}
